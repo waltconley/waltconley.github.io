@@ -8,35 +8,33 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #111111; /* Very dark grey / soft black */
+            --bg-color: #050505; /* Near black for base */
             --text-white: #FFFFFF;
             --text-yellow: #FFD700; /* Goldish yellow */
             --outline-orange: #FFA500; /* Standard orange */
             --outline-orange-dark: #FF8C00; /* Darker orange for yellow text outline */
             --button-primary-bg: var(--text-yellow);
-            --button-primary-text: var(--bg-color);
+            --button-primary-text: #050505; 
             --button-secondary-border: var(--outline-orange);
             --button-secondary-text: var(--outline-orange);
             --button-secondary-hover-bg: var(--outline-orange);
-            --button-secondary-hover-text: var(--bg-color);
-            --tag-bg: #D35400; /* A darker, richer orange for tag backgrounds */
+            --button-secondary-hover-text: #050505; 
+            --tag-bg: #D35400; 
             --tag-text: var(--text-yellow);
             --navbar-brand-color: var(--text-yellow);
-            --navbar-link-color: #e0e0e0; /* Light grey for general nav links */
+            --navbar-link-color: #e0e0e0; 
             --navbar-link-hover-color: var(--text-yellow);
             --section-title-color: var(--text-yellow);
+            --spark-color: var(--outline-orange);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-white); /* Default text color */
-            -webkit-text-stroke-width: 0.4px; /* Thin outline for default text */
-            -webkit-text-stroke-color: var(--outline-orange);
+            color: var(--text-white); 
             paint-order: stroke fill;
             overflow-x: hidden;
         }
-        /* Remove default outline from body, apply to specific elements */
         body { -webkit-text-stroke-width: 0; }
         p, li, .text-default-outlined {
             color: var(--text-white);
@@ -46,7 +44,7 @@
         }
         h1, h2, h3, h4, h5, h6, .text-accent-outlined {
             color: var(--text-yellow);
-            -webkit-text-stroke-width: 0.6px; /* Slightly thicker for accent */
+            -webkit-text-stroke-width: 0.6px; 
             -webkit-text-stroke-color: var(--outline-orange-dark);
             paint-order: stroke fill;
         }
@@ -59,9 +57,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #000000, #111111, #0d0d0d, #1a1a1a);
-            background-size: 400% 400%;
-            animation: gradientBG 35s ease infinite;
+            background: linear-gradient(-45deg, #000000, #0a0a0a, #050505, #101010);
+            background-size: 600% 600%; 
+            animation: gradientBG 45s ease infinite; 
+            opacity: 0.8; 
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -69,7 +68,7 @@
             100% { background-position: 0% 50%; }
         }
         .navbar-scrolled {
-            background-color: rgba(10, 10, 10, 0.85); 
+            background-color: rgba(5, 5, 5, 0.85); 
             backdrop-filter: blur(10px);
         }
         .section {
@@ -80,30 +79,29 @@
             padding-top: 8rem;
         }
         .card {
-            background-color: rgba(20, 20, 20, 0.75); /* Darker card */
-            border: 1px solid rgba(255, 165, 0, 0.3); /* Faint orange border */
+            background-color: rgba(15, 15, 15, 0.75); 
+            border: 1px solid rgba(255, 165, 0, 0.2); 
             backdrop-filter: blur(5px);
         }
         .tag {
             background-color: var(--tag-bg);
             color: var(--tag-text);
-            -webkit-text-stroke-width: 0; /* No stroke for tag text for clarity */
+            -webkit-text-stroke-width: 0; 
         }
         .btn-primary {
             background-color: var(--button-primary-bg);
             color: var(--button-primary-text);
-            -webkit-text-stroke-width: 0; /* No stroke for button text */
+            -webkit-text-stroke-width: 0; 
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .btn-primary:hover {
-            background-color: var(--text-yellow); /* Keep yellow, maybe slightly brighter if possible */
-            filter: brightness(1.1);
+            filter: brightness(1.15); 
             transform: translateY(-2px);
         }
         .btn-secondary {
             border: 1px solid var(--button-secondary-border);
             color: var(--button-secondary-text);
-            -webkit-text-stroke-width: 0; /* No stroke for button text */
+            -webkit-text-stroke-width: 0; 
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
         }
         .btn-secondary:hover {
@@ -113,27 +111,48 @@
         }
         .typewriter-container {
             display: inline-block; 
+            position: relative; /* For spark positioning */
         }
-        .typewriter-text-target { /* Target this span for typewriter text */
-            color: var(--text-yellow); /* Yellow fill for typewriter */
+        .typewriter-text-target {
+            color: var(--text-yellow); 
             -webkit-text-stroke-width: 0.6px;
             -webkit-text-stroke-color: var(--outline-orange-dark);
             paint-order: stroke fill;
             overflow: hidden;
             white-space: nowrap;
-            animation: typing 3.8s steps(45, end), blink-caret .75s step-end infinite;
-            border-right: .15em solid var(--outline-orange); 
+            animation: typing 4.5s steps(45, end) forwards; /* Only typing animation, forwards to hold state */
             display: inline-block; 
             vertical-align: bottom; 
+            /* Removed border-right for cursor */
         }
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--outline-orange); }
+        /* Removed @keyframes blink-caret */
+
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: var(--spark-color);
+            border-radius: 50%;
+            opacity: 1;
+            animation: flyAndFade 0.7s ease-out forwards;
+            pointer-events: none; 
         }
+
+        @keyframes flyAndFade {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--spark-end-x), var(--spark-end-y)) scale(0);
+                opacity: 0;
+            }
+        }
+
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -148,23 +167,21 @@
             height: 180px; 
             margin-bottom: 2rem;
         }
-        /* Specific link styling for navbar */
         nav a {
             color: var(--navbar-link-color);
             -webkit-text-stroke-width: 0.4px;
             -webkit-text-stroke-color: var(--outline-orange);
             paint-order: stroke fill;
         }
-        nav a:hover, nav a.text-accent-outlined:hover { /* Navbar link hover */
+        nav a:hover, nav a.text-accent-outlined:hover {
             color: var(--navbar-link-hover-color);
             -webkit-text-stroke-color: var(--outline-orange-dark);
         }
-        nav a.text-accent-outlined { /* Navbar brand */
+        nav a.text-accent-outlined {
              color: var(--navbar-brand-color);
             -webkit-text-stroke-width: 0.6px;
             -webkit-text-stroke-color: var(--outline-orange-dark);
         }
-        /* Social icon specific styling */
         .social-icon {
             color: var(--text-white);
             -webkit-text-stroke-width: 0.5px;
@@ -176,7 +193,6 @@
             color: var(--text-yellow);
             -webkit-text-stroke-color: var(--outline-orange-dark);
         }
-        /* Project links */
         .project-link {
             color: var(--text-yellow);
             -webkit-text-stroke-width: 0.5px;
