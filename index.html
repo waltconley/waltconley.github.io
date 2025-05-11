@@ -1,1 +1,456 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walt's Forge - Backend Developer ePortfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111111; /* Very dark grey / soft black */
+            --text-white: #FFFFFF;
+            --text-yellow: #FFD700; /* Goldish yellow */
+            --outline-orange: #FFA500; /* Standard orange */
+            --outline-orange-dark: #FF8C00; /* Darker orange for yellow text outline */
+            --button-primary-bg: var(--text-yellow);
+            --button-primary-text: var(--bg-color);
+            --button-secondary-border: var(--outline-orange);
+            --button-secondary-text: var(--outline-orange);
+            --button-secondary-hover-bg: var(--outline-orange);
+            --button-secondary-hover-text: var(--bg-color);
+            --tag-bg: #D35400; /* A darker, richer orange for tag backgrounds */
+            --tag-text: var(--text-yellow);
+            --navbar-brand-color: var(--text-yellow);
+            --navbar-link-color: #e0e0e0; /* Light grey for general nav links */
+            --navbar-link-hover-color: var(--text-yellow);
+            --section-title-color: var(--text-yellow);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white); /* Default text color */
+            -webkit-text-stroke-width: 0.4px; /* Thin outline for default text */
+            -webkit-text-stroke-color: var(--outline-orange);
+            paint-order: stroke fill;
+            overflow-x: hidden;
+        }
+        /* Remove default outline from body, apply to specific elements */
+        body { -webkit-text-stroke-width: 0; }
+        p, li, .text-default-outlined {
+            color: var(--text-white);
+            -webkit-text-stroke-width: 0.4px;
+            -webkit-text-stroke-color: var(--outline-orange);
+            paint-order: stroke fill;
+        }
+        h1, h2, h3, h4, h5, h6, .text-accent-outlined {
+            color: var(--text-yellow);
+            -webkit-text-stroke-width: 0.6px; /* Slightly thicker for accent */
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+            paint-order: stroke fill;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #000000, #111111, #0d0d0d, #1a1a1a);
+            background-size: 400% 400%;
+            animation: gradientBG 35s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .navbar-scrolled {
+            background-color: rgba(10, 10, 10, 0.85); 
+            backdrop-filter: blur(10px);
+        }
+        .section {
+            padding-top: 6rem; 
+            padding-bottom: 4rem;
+        }
+        .hero-section {
+            padding-top: 8rem;
+        }
+        .card {
+            background-color: rgba(20, 20, 20, 0.75); /* Darker card */
+            border: 1px solid rgba(255, 165, 0, 0.3); /* Faint orange border */
+            backdrop-filter: blur(5px);
+        }
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            -webkit-text-stroke-width: 0; /* No stroke for tag text for clarity */
+        }
+        .btn-primary {
+            background-color: var(--button-primary-bg);
+            color: var(--button-primary-text);
+            -webkit-text-stroke-width: 0; /* No stroke for button text */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: var(--text-yellow); /* Keep yellow, maybe slightly brighter if possible */
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 1px solid var(--button-secondary-border);
+            color: var(--button-secondary-text);
+            -webkit-text-stroke-width: 0; /* No stroke for button text */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background-color: var(--button-secondary-hover-bg);
+            color: var(--button-secondary-hover-text);
+            transform: translateY(-2px);
+        }
+        .typewriter-container {
+            display: inline-block; 
+        }
+        .typewriter-text-target { /* Target this span for typewriter text */
+            color: var(--text-yellow); /* Yellow fill for typewriter */
+            -webkit-text-stroke-width: 0.6px;
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+            paint-order: stroke fill;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.8s steps(45, end), blink-caret .75s step-end infinite;
+            border-right: .15em solid var(--outline-orange); 
+            display: inline-block; 
+            vertical-align: bottom; 
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--outline-orange); }
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-graphic-placeholder {
+            width: 200px; 
+            height: 180px; 
+            margin-bottom: 2rem;
+        }
+        /* Specific link styling for navbar */
+        nav a {
+            color: var(--navbar-link-color);
+            -webkit-text-stroke-width: 0.4px;
+            -webkit-text-stroke-color: var(--outline-orange);
+            paint-order: stroke fill;
+        }
+        nav a:hover, nav a.text-accent-outlined:hover { /* Navbar link hover */
+            color: var(--navbar-link-hover-color);
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+        }
+        nav a.text-accent-outlined { /* Navbar brand */
+             color: var(--navbar-brand-color);
+            -webkit-text-stroke-width: 0.6px;
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+        }
+        /* Social icon specific styling */
+        .social-icon {
+            color: var(--text-white);
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: var(--outline-orange);
+            paint-order: stroke fill;
+            transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--text-yellow);
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+        }
+        /* Project links */
+        .project-link {
+            color: var(--text-yellow);
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: var(--outline-orange-dark);
+            paint-order: stroke fill;
+        }
+        .project-link:hover {
+            filter: brightness(1.2);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 ease-in-out py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-accent-outlined">Walt's Forge</a>
+            <div class="space-x-6">
+                <a href="#about">The Craftsman</a>
+                <a href="#projects">Creations</a>
+                <a href="#skills">The Craft</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 hero-section">
+        <div class="hero-graphic-placeholder reveal-on-scroll">
+            <img src="https://placehold.co/200x180/111111/FFA500?text=Hammer+Striking+PC" alt="Walt's Forge Graphic - Hammer and PC Tower" class="w-full h-full object-contain"
+            onerror="this.alt='Conceptual graphic: Blacksmith hammer striking a PC tower, symbolizing code forging.'; this.src='https://placehold.co/200x180/111111/e0e0e0?text=Forge+Concept';">
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-3 reveal-on-scroll text-accent-outlined" style="animation-delay: 0.2s;">
+            Welcome to <span class="text-accent-outlined">Walt's Forge</span>.
+        </h1>
+        <div class="h-12 md:h-16 mb-6 reveal-on-scroll typewriter-container" style="animation-delay: 0.4s;"> 
+            <p id="typewriter" class="text-2xl md:text-3xl">
+                <span class="typewriter-text-target"></span> 
+            </p>
+        </div>
+        <p class="max-w-2xl mb-10 text-lg reveal-on-scroll text-default-outlined" style="animation-delay: 0.6s;">
+            Here, complex problems are hammered into robust and scalable backend solutions. 
+            Precision-crafted code, built to last.
+        </p>
+        <div class="space-x-4 reveal-on-scroll" style="animation-delay: 0.8s;">
+            <a href="#projects" class="btn-primary font-semibold py-3 px-8 rounded-lg shadow-lg">View Creations</a>
+            <a href="Walt_Conley_Resume.pdf" download="Walt_Conley_Resume.pdf" class="btn-secondary font-semibold py-3 px-8 rounded-lg">Download Anvil (Resume)</a>
+        </div>
+        <div class="mt-12 space-x-6 reveal-on-scroll" style="animation-delay: 1s;">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:youremail@example.com" class="social-icon text-3xl"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <section id="about" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-accent-outlined">The Craftsman</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/3">
+                <img src="https://placehold.co/400x400/1a1a1a/FFD700?text=Walt" alt="Walt - The Craftsman" class="rounded-lg shadow-2xl mx-auto w-64 h-64 md:w-full md:h-auto object-cover border-4" style="border-color: rgba(255,165,0,0.4);">
+            </div>
+            <div class="md:w-2/3 text-lg space-y-4">
+                <p class="text-default-outlined">
+                    Hello! I'm Walt, the backend developer behind the forge. Based in central Arkansas, my journey into technology was sparked by a fascination with the intricate mechanics that power our digital world. I'm driven by the challenge of transforming complex requirements into efficient, scalable, and reliable server-side systems. Like a blacksmith shaping metal, I continuous beat on the keyboard until my code is a work of art! In all reality though, this is the only domain I could think of and went with it.
+                </p>
+                <p class="text-default-outlined">
+                    I believe in continuous learning and applying foundational computer science principles to build software that not only works, but endures. When I'm not at the digital anvil, I enjoy working on my car (without a hammer), playing games, and cooking!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-16 text-accent-outlined">Forged Creations</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=MatchBase+System" alt="MatchBase Library" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">MatchBase & Result/Option Library</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    A JavaScript library for creating and matching on custom tagged union types (Option, Result, etc.), enabling robust error handling and clearer control flow in backend applications.
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Node.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">JavaScript</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Software Design</span>
+                </div>
+                <div class="space-x-3">
+                    <a href="https://github.com/yourusername/your-eportfolio-repo" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=Travel+App+Backend" alt="Refactored Travel App" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">Refactored Travel API (CS465)</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    Significantly enhanced the backend of a full-stack travel package application by replacing custom error handling with the MatchBase library, implementing server-side validation, advanced data collections, and a caching layer.
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Node.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Express.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">MongoDB</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">API Design</span>
+                </div>
+                <div class="space-x-3">
+                     <a href="https://github.com/yourusername/your-eportfolio-repo" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=Future+Creation" alt="Another Project" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">[Future Projects Here]</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    Idk what to put here.
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Tech 1</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Tech 2</span>
+                </div>
+                <div class="space-x-3">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Demo <i class="fas fa-external-link-alt text-xs"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-16 text-accent-outlined">The Craft & The Forge (Skills)</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Languages</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>JavaScript (Node.js, ESNext)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Python (Proficient)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>SQL (PostgreSQL, MySQL)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>HTML5 & CSS3</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Backend Technologies</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-server mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Node.js, Express.js</li>
+                    <li class="text-default-outlined"><i class="fas fa-network-wired mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>REST API Design</li>
+                    <li class="text-default-outlined"><i class="fas fa-shield-alt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Server-Side Validation</li>
+                    <li class="text-default-outlined"><i class="fas fa-bolt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Caching Strategies</li>
+                    <li class="text-default-outlined"><i class="fas fa-cogs mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>MatchBase, Result/Option Pattern</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Databases</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>MongoDB, Mongoose</li>
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>PostgreSQL, MySQL</li>
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Database Design & Modeling</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Tools & Practices</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fab fa-git-alt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Git, GitHub</li>
+                    <li class="text-default-outlined"><i class="fas fa-terminal mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Jest (Testing)</li>
+                    <li class="text-default-outlined"><i class="fas fa-tasks mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Agile (Familiarity)</li>
+                    <li class="text-default-outlined"><i class="fas fa-tools mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Postman / Insomnia</li>
+                    <li class="text-default-outlined"><i class="fab fa-docker mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Docker (Basic)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section container mx-auto px-6 text-center reveal-on-scroll">
+        <h2 class="text-4xl font-bold mb-8 text-accent-outlined">Reach Out to the Forge</h2>
+        <p class="text-xl mb-10 max-w-xl mx-auto text-default-outlined">
+            I'm always keen to discuss new backend challenges, innovative solutions, or opportunities to collaborate. If you have a project in mind or just want to connect, don't hesitate to send a message.
+        </p>
+        <a href="mailto:youremail@example.com" class="btn-primary font-semibold py-3 px-10 rounded-lg text-lg shadow-lg">
+            Send a Signal <i class="fas fa-paper-plane ml-2"></i>
+        </a>
+        <div class="mt-12 space-x-6">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center border-t" style="border-color: rgba(255,165,0,0.2);">
+        <p class="text-default-outlined opacity-75">&copy; <span id="currentYear"></span> Walt's Forge (WACForge.dev). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+
+        // Typewriter effect
+        const typewriterElement = document.querySelector('#typewriter .typewriter-text-target');
+        const textToType = "Hammering Code into Robust Applications.";
+        let charIndex = 0;
+        
+        function typeEffect() {
+            if (typewriterElement && charIndex < textToType.length) {
+                typewriterElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 100);
+            } else if (typewriterElement) {
+                 typewriterElement.style.borderRightColor = 'var(--outline-orange)'; // Keep cursor solid at end
+                 // Optional: start blinking again after a pause
+                 // setTimeout(startBlinking, 1500);
+            }
+        }
+        
+        // Blinking effect for cursor (can be called after typing finishes)
+        let isCursorVisible = true;
+        function blinkCursor() {
+            if (typewriterElement) {
+                typewriterElement.style.borderRightColor = isCursorVisible ? 'var(--outline-orange)' : 'transparent';
+                isCursorVisible = !isCursorVisible;
+                setTimeout(blinkCursor, 530); // Blinking speed
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typewriterElement) {
+                 setTimeout(() => {
+                    typeEffect(); // Start typing
+                    // Start blinking immediately or after typing is done
+                    // If you want blinking from the start of typing, call blinkCursor() here too.
+                    // For blinking only after typing: call it inside the 'else' of typeEffect.
+                    // For continuous blinking (even during typing, though animation handles it):
+                    // blinkCursor(); 
+                 }, 1200);
+            }
+        });
+
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Current Year for Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Reveal on Scroll Animation
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 }); 
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
