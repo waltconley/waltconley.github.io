@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forge Reflection Effect - Corrected Flicker</title>
+<style>
+  body { margin: 0; overflow: hidden; background-color: black; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const context = canvas.getContext('2d');
+
+    // --- Configuration ---
+    let canvasWidth = window.innerWidth;
+    let canvasHeight = window.innerHeight;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    const TILE_SIZE = 5; 
+
+    let internalHeight = Math.floor(canvasHeight / TILE_SIZE);
+    let internalWidth = Math.floor(canvasWidth / TILE_SIZE);
+
+    let fire = new Array(internalWidth * internalHeight).fill(0);
+
+    // **ADJUSTED COOLING_FACTOR**
+    // This value is critical for flame height.
+    // Let's try a slightly safer value than 4.018 to prevent instant die-off,
+    // but still low enough for tall flames.
+    const COOLING_FACTOR = 4.025; // Was 4.018 in the broken one, 4.03 before that.
+
+    const animationDelay = 70; 
+
+    // **LESS FREQUENT MAJOR LICKS**
+    const spikeFrequency = 45;  // User request: less often
+
+    let frameCounter = 0;
+
+    // --- Main Animation Loop ---
+    function burn() {
+      frameCounter++;
+
+      // Step 1: Determine energy input for the bottom row
+      if (frameCounter % spikeFrequency === 0) {
+        // **MAJOR LICKS: 1 or 2 distinct, strong licks**
+        const numLicks = (Math.random() < 0.70) ? 1 : 2; // 70% chance of 1 lick
+        const lickBaseStrength = 210; 
+        const lickRandomStrength = 45;  
+        // **SIMPLIFIED lickTileWidth**
+        const lickTileWidth = 2; // Each lick source is 2 tiles wide (10px if TILE_SIZE is 5)
+
+        for (let i = 0; i < numLicks; i++) {
+            // Ensure randomX allows for lickTileWidth
+            let randomX = Math.floor(Math.random() * (internalWidth - lickTileWidth + 1)); 
+            for (let w = 0; w < lickTileWidth; w++) {
+                // No need to check bounds again if randomX is correct
+                fire[(internalHeight - 1) * internalWidth + (randomX + w)] = Math.random() * lickRandomStrength + lickBaseStrength;
+            }
+        }
+      } else {
+        // **NORMAL SIMMERING: Adjusted for sustained mid-height flickers**
+        for (let x = 0; x < internalWidth; x++) {
+          let currentValue = fire[(internalHeight - 1) * internalWidth + x];
+          // Ensure sustained energy for normal flickers to reach mid-page.
+          // Slower decay, consistent small positive energy input.
+          fire[(internalHeight - 1) * internalWidth + x] = 
+            Math.max(0, currentValue * 0.90 + (Math.random() * 30) - 12); // Avg add: +3
+        }
+      }
+
+      // Step 2: Propagate fire upwards and cool it
+      for (let y = internalHeight - 2; y >= 0; y--) { 
+        for (let x = 0; x < internalWidth; x++) {     
+          let currentCellIndex = y * internalWidth + x;
+
+          let val1 = fire[ (y + 1) * internalWidth + ((x - 1 + internalWidth) % internalWidth) ]; 
+          let val2 = fire[ (y + 1) * internalWidth + x ];                         
+          let val3 = fire[ (y + 1) * internalWidth + ((x + 1 + internalWidth) % internalWidth) ]; 
+          
+          let val4 = 0;
+          if (y + 2 < internalHeight) {
+             val4 = fire[ (y + 2) * internalWidth + x ];
+          }
+          
+          fire[currentCellIndex] = Math.max(0, Math.floor((val1 + val2 + val3 + val4) / COOLING_FACTOR));
+        }
+      }
+
+      // Step 3: Draw the fire on the canvas
+      context.clearRect(0, 0, canvasWidth, canvasHeight); 
+
+      for (let yDraw = 0; yDraw < internalHeight; yDraw++) { 
+        for (let xDraw = 0; xDraw < internalWidth; xDraw++) { 
+          let fireIndex = yDraw * internalWidth + xDraw; 
+          let intensity = fire[fireIndex];
+
+          if (intensity > 1) { // Only draw if there's some intensity
+            let r, g, b;
+
+            r = Math.min(255, Math.floor(intensity));
+            g = Math.min(255, Math.floor(intensity * 0.55)); 
+            b = Math.min(255, Math.floor(intensity * 0.1));  
+
+            if (intensity < 80 && intensity > 1) { 
+                g = Math.min(255, Math.floor(intensity * 0.75)); 
+                b = 0; 
+            }
+            if (intensity < 30 && intensity > 1) { 
+                r = Math.min(255, Math.floor(intensity * 1.4)); 
+                g = Math.min(255, Math.floor(intensity * 0.9));
+            }
+
+            context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+            context.fillRect(xDraw * TILE_SIZE, yDraw * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+          }
+        }
+      }
+
+      setTimeout(burn, animationDelay);
+    }
+
+    window.addEventListener('resize', () => {
+        canvasWidth = window.innerWidth;
+        canvasHeight = window.innerHeight;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        
+        internalHeight = Math.floor(canvasHeight / TILE_SIZE);
+        internalWidth = Math.floor(canvasWidth / TILE_SIZE);
+        
+        fire = new Array(internalWidth * internalHeight).fill(0);
+    });
+
+    burn();
+  </script>
+</body>
+</html>
