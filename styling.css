@@ -193,3 +193,9 @@ nav a.text-accent-outlined {
 .project-link:hover {
     filter: brightness(1.2);
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
