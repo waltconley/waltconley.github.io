@@ -19,6 +19,12 @@
     --spark-color: var(--outline-orange);
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
@@ -194,8 +200,3 @@ nav a.text-accent-outlined {
     filter: brightness(1.2);
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
