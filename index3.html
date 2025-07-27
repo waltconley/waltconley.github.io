@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walt's Forge - Backend Developer ePortfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styling_new.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body class="antialiased">
+
+    <canvas id="myCanvas"></canvas>
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 ease-in-out py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-accent-outlined">Walt's Forge</a>
+            <div class="space-x-6">
+                <a href="#about">The Craftsman</a>
+                <a href="#projects">Creations</a>
+                <a href="#skills">The Craft</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 hero-section">
+        <div class="hero-graphic-placeholder reveal-on-scroll">
+          <object
+            type="image/svg+xml"
+            data="DevSiteLogo.svg" class="w-full h-full object-contain"
+            aria-label="Walt's Forge Graphic - Hammer and PC Tower"
+            role="img">
+            Graphic: Blacksmith hammer striking a Mac - symbolizing code forging.
+          </object>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-3 reveal-on-scroll text-accent-outlined" style="animation-delay: 0.2s;">
+            Welcome to my <span class="text-accent-outlined">Forge</span>.
+        </h1>
+        <div class="h-12 md:h-16 mb-6 reveal-on-scroll typewriter-container" style="animation-delay: 0.4s;">
+            <p id="typewriter" class="text-2xl md:text-3xl">
+                <span class="typewriter-text-target"></span>
+            </p>
+        </div>
+        <p class="max-w-2xl mb-10 text-lg reveal-on-scroll text-default-outlined" style="animation-delay: 0.6s;">
+            Here, complex problems are hammered into robust and scalable backend solutions.
+            Precision-crafted code, built to last.
+        </p>
+        <div class="flex flex-col space-y-4 reveal-on-scroll" style="animation-delay: 0.8s;">
+            <a href="Walt_Conley_Resume.pdf" download="Walt_Conley_Resume.pdf" class="btn-secondary font-semibold py-3 px-8 rounded-lg">Download ⚒️Resume⚒️</a>
+            <a href="#projects" class="btn-primary font-semibold py-3 px-8 rounded-lg shadow-lg">View Creations</a>
+        </div>
+        <div class="mt-12 space-x-6 reveal-on-scroll" style="animation-delay: 1s;">
+            <a href="https://github.com/waltconley" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/walter-conley-376b2291" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:walter.conley.259@gmail.com" class="social-icon text-3xl"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <section id="about" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-accent-outlined">The Craftsman</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/3">
+                <img src="profile_pic.jpg" alt="Walt - The Craftsman" class="rounded-lg shadow-2xl mx-auto w-64 h-64 md:w-full md:h-auto object-cover border-4" style="border-color: rgba(255,165,0,0.4);">
+            </div>
+            <div class="md:w-2/3 text-lg space-y-4">
+                <p class="text-default-outlined">
+                    Hello! I'm Walt, the backend developer behind the forge. Based in central Arkansas, my journey into technology was sparked by a fascination with the intricate mechanics that power our digital world. I'm driven by the challenge of transforming complex requirements into efficient, scalable, and reliable server-side systems. Like a blacksmith shaping metal, I continuously beat on the keyboard until my code is a work of art! In all reality though, this is the only domain I could think of and went with it.
+                </p>
+                <p class="text-default-outlined">
+                    I believe in continuous learning and applying foundational computer science principles to build software that not only works, but endures. When I'm not at the digital anvil, I enjoy working on my car (without a hammer), playing games, and cooking!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-16 text-accent-outlined">Forged Creations</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=Pending+Project" alt="Pending Project" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">Pending Project</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    Blank Description - Just an Example
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Node.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">JavaScript</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Software Design</span>
+                </div>
+                <div class="space-x-3">
+                    <a href="https://github.com/waltconley/pending" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=Pending+Project" alt="Pending Project" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">Pending Project</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    Blank Description - Just an Example
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Node.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">JavaScript</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Software Design</span>
+                </div>
+                <div class="space-x-3">
+                    <a href="https://github.com/waltconley/pending" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/600x400/2C3E50/FFD700?text=Pending+Project" alt="Pending Project" class="rounded-md mb-4 w-full h-48 object-cover">
+                <h3 class="text-2xl font-semibold mb-2 text-accent-outlined">Pending Project</h3>
+                <p class="text-default-outlined mb-4 text-sm">
+                    Blank Description - Just an Example
+                </p>
+                <div class="mb-4">
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Node.js</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">JavaScript</span>
+                    <span class="tag text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full mr-2 mb-2">Software Design</span>
+                </div>
+                <div class="space-x-3">
+                    <a href="https://github.com/waltconley/pending" target="_blank" rel="noopener noreferrer" class="project-link font-medium">View Code <i class="fab fa-github text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section container mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-center mb-16 text-accent-outlined">The Craft & The Forge (Skills)</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Languages</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>TypeScript (Node.js, ESNext)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Python (Proficient)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>SQL (PostgreSQL, MySQL)</li>
+                    <li class="text-default-outlined"><i class="fas fa-code mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>HTML5 & CSS3</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Backend Technologies</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-server mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Node.js, Express.js</li>
+                    <li class="text-default-outlined"><i class="fas fa-network-wired mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>REST API Design</li>
+                    <li class="text-default-outlined"><i class="fas fa-shield-alt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Server-Side Validation</li>
+                    <li class="text-default-outlined"><i class="fas fa-bolt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Caching Strategies</li>
+                    <li class="text-default-outlined"><i class="fas fa-cogs mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>More to come..</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Databases</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>MongoDB, Mongoose</li>
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>PostgreSQL, MySQL</li>
+                    <li class="text-default-outlined"><i class="fas fa-database mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Database Design & Modeling</li>
+                </ul>
+            </div>
+            <div class="card rounded-xl p-6 shadow-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-accent-outlined">Tools & Practices</h3>
+                <ul class="space-y-2">
+                    <li class="text-default-outlined"><i class="fab fa-git-alt mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Git, GitHub</li>
+                    <li class="text-default-outlined"><i class="fas fa-terminal mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Jest (Testing)</li>
+                    <li class="text-default-outlined"><i class="fas fa-tasks mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Agile (Familiarity)</li>
+                    <li class="text-default-outlined"><i class="fas fa-tools mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Postman / Insomnia</li>
+                    <li class="text-default-outlined"><i class="fab fa-docker mr-2" style="color:var(--text-yellow); -webkit-text-stroke-color: var(--outline-orange-dark);"></i>Docker (Basic)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section container mx-auto px-6 text-center reveal-on-scroll">
+        <h2 class="text-4xl font-bold mb-8 text-accent-outlined">Reach Out to the Forge</h2>
+        <p class="text-xl mb-10 max-w-xl mx-auto text-default-outlined">
+            I'm always keen to discuss new backend challenges, innovative solutions, or opportunities to collaborate. If you have a project in mind or just want to connect, don't hesitate to send a message.
+        </p>
+        <a href="mailto:walter.conley.259@gmail.com" class="btn-primary font-semibold py-3 px-10 rounded-lg text-lg shadow-lg">
+            Send a Signal <i class="fas fa-paper-plane ml-2"></i>
+        </a>
+        <div class="mt-12 space-x-6">
+            <a href="https://github.com/waltconley" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/walter-conley-376b2291" target="_blank" rel="noopener noreferrer" class="social-icon text-3xl"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center border-t" style="border-color: rgba(255,165,0,0.2);">
+        <p class="text-default-outlined opacity-75">&copy; <span id="currentYear"></span> Walt's Forge (WACForge.dev). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- Fire Animation Script ---
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+        const TILE_SIZE = 5;
+        const COOLING_FACTOR = 4.025;
+        const spikeFrequency = 45;
+
+        let canvasWidth, canvasHeight;
+        let internalHeight, internalWidth;
+        let fire;
+        let frameCounter = 0;
+        let animationFrameId; // To manage requestAnimationFrame
+
+        function initializeFireCanvas() {
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerHeight;
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+
+            internalHeight = Math.floor(canvasHeight / TILE_SIZE);
+            internalWidth = Math.floor(canvasWidth / TILE_SIZE);
+
+            fire = new Array(internalWidth * internalHeight).fill(0);
+        }
+
+        function burn() {
+            frameCounter++;
+
+            // Step 1: Determine energy input for the bottom row
+            if (frameCounter % spikeFrequency === 0) {
+                const numLicks = (Math.random() < 0.70) ? 1 : 2;
+                const lickBaseStrength = 210;
+                const lickRandomStrength = 45;
+                const lickTileWidth = 2;
+
+                for (let i = 0; i < numLicks; i++) {
+                    let randomX = Math.floor(Math.random() * (internalWidth - lickTileWidth + 1));
+                    for (let w = 0; w < lickTileWidth; w++) {
+                        fire[(internalHeight - 1) * internalWidth + (randomX + w)] = Math.random() * lickRandomStrength + lickBaseStrength;
+                    }
+                }
+            } else {
+                for (let x = 0; x < internalWidth; x++) {
+                    let currentValue = fire[(internalHeight - 1) * internalWidth + x];
+                    fire[(internalHeight - 1) * internalWidth + x] =
+                        Math.max(0, currentValue * 0.90 + (Math.random() * 30) - 12);
+                }
+            }
+
+            // Step 2: Propagate fire upwards and cool it
+            for (let y = internalHeight - 2; y >= 0; y--) {
+                for (let x = 0; x < internalWidth; x++) {
+                    let currentCellIndex = y * internalWidth + x;
+
+                    let val1 = fire[(y + 1) * internalWidth + ((x - 1 + internalWidth) % internalWidth)];
+                    let val2 = fire[(y + 1) * internalWidth + x];
+                    let val3 = fire[(y + 1) * internalWidth + ((x + 1 + internalWidth) % internalWidth)];
+
+                    let val4 = 0;
+                    if (y + 2 < internalHeight) {
+                        val4 = fire[(y + 2) * internalWidth + x];
+                    }
+
+                    fire[currentCellIndex] = Math.max(0, Math.floor((val1 + val2 + val3 + val4) / COOLING_FACTOR));
+                }
+            }
+
+            // Step 3: Draw the fire on the canvas
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            for (let yDraw = 0; yDraw < internalHeight; yDraw++) {
+                for (let xDraw = 0; xDraw < internalWidth; xDraw++) {
+                    let fireIndex = yDraw * internalWidth + xDraw;
+                    let intensity = fire[fireIndex];
+
+                    if (intensity > 1) {
+                        let r, g, b;
+
+                        r = Math.min(255, Math.floor(intensity));
+                        g = Math.min(255, Math.floor(intensity * 0.55));
+                        b = Math.min(255, Math.floor(intensity * 0.1));
+
+                        if (intensity < 80 && intensity > 1) {
+                            g = Math.min(255, Math.floor(intensity * 0.75));
+                            b = 0;
+                        }
+                        if (intensity < 30 && intensity > 1) {
+                            r = Math.min(255, Math.floor(intensity * 1.4));
+                            g = Math.min(255, Math.floor(intensity * 0.9));
+                        }
+
+                        context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+                        context.fillRect(xDraw * TILE_SIZE, yDraw * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                    }
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(burn);
+        }
+
+        // --- Main Page JavaScript ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize and start fire animation
+            initializeFireCanvas();
+            burn();
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.onscroll = function() {
+                if (window.pageYOffset > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            };
+
+            // Typewriter effect
+            const typewriterElement = document.querySelector('#typewriter .typewriter-text-target');
+            const textToType = "Hammering code from dusk til dawn.";
+            let charIndex = 0;
+
+            function typeEffect() {
+                if (typewriterElement && charIndex < textToType.length) {
+                    typewriterElement.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeEffect, 100);
+                } else if (typewriterElement) {
+                    typewriterElement.style.borderRightColor = 'var(--outline-orange)'; // Keep cursor solid at end
+                }
+            }
+
+            // Blinking effect for cursor (can be called after typing finishes, currently not active)
+            // let isCursorVisible = true;
+            // function blinkCursor() {
+            //     if (typewriterElement) {
+            //         typewriterElement.style.borderRightColor = isCursorVisible ? 'var(--outline-orange)' : 'transparent';
+            //         isCursorVisible = !isCursorVisible;
+            //         setTimeout(blinkCursor, 530); // Blinking speed
+            //     }
+            // }
+
+            if (typewriterElement) {
+                setTimeout(() => {
+                    typeEffect();
+                }, 1200);
+            }
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navbarHeight = document.getElementById('navbar').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Current Year for Footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Reveal on Scroll Animation
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+
+
+        // Handle canvas resize
+        window.addEventListener('resize', () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId); // Stop previous animation loop
+            }
+            initializeFireCanvas(); // Re-initialize canvas dimensions and fire array
+            burn(); // Restart animation
+        });
+
+    </script>
+</body>
+</html>
