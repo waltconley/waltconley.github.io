@@ -31,7 +31,7 @@ body {
     background-color: var(--bg-color); /* This will be largely covered by canvas, but good fallback */
     color: var(--text-white);
     paint-order: stroke fill; /* Keep or remove as per your preference; unrelated to canvas bg */
-    overflow-x: hidden;
+    overflow: hidden; /* IMPORTANT: Ensures no scrollbar due to taller canvas */
 }
 
 /* Reset for text-stroke if not intended globally for P and LI */
@@ -51,12 +51,13 @@ h1, h2, h3, h4, h5, h6, .text-accent-outlined {
     paint-order: stroke fill;
 }
 
+/* NEW: Canvas for the background fire animation */
 #myCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100vh + 20px); /* Make canvas slightly taller than viewport */
     z-index: -2; /* Ensure it's behind all other content */
     display: block; /* Important for canvases to remove default spacing */
     pointer-events: none; /* Crucial: Allows clicks/interactions with content above the canvas */
@@ -72,7 +73,6 @@ h1, h2, h3, h4, h5, h6, .text-accent-outlined {
     position: relative; /* REQUIRED for z-index to work */
     z-index: 1;         /* Place sections above the canvas's z-index: -2 */
 }
-
 .hero-section {
     padding-top: 8rem;
 }
