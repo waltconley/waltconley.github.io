@@ -264,6 +264,8 @@
 
             // Step 3: Draw the fire on the canvas
             context.clearRect(0, 0, canvasWidth, canvasHeight);
+            context.fillStyle = 'black'; // Or '#050505' if you prefer your exact var(--bg-color)
+            context.fillRect(0, 0, canvasWidth, canvasHeight);
 
             for (let yDraw = 0; yDraw < internalHeight; yDraw++) {
                 for (let xDraw = 0; xDraw < internalWidth; xDraw++) {
