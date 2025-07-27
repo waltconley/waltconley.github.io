@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6, .text-accent-outlined {
 /* NEW: Canvas for the background fire animation */
 #myCanvas {
     position: fixed;
-    top: 0;
+    top: 2;
     left: 0;
     width: 100%;
     height: calc(100vh + 20px); /* Make canvas slightly taller than viewport */
