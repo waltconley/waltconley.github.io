@@ -233,7 +233,7 @@
                 for (let i = 0; i < numLicks; i++) {
                     let randomX = Math.floor(Math.random() * (internalWidth - lickTileWidth + 1));
                     for (let w = 0; w < lickTileWidth; w++) {
-                        fire[(internalHeight - 1) * internalWidth + (randomX + w)] = Math.random() * lickRandomStrength + lickBaseStrength;
+                        fire[(internalHeight - 5) * internalWidth + (randomX + w)] = Math.random() * lickRandomStrength + lickBaseStrength;
                     }
                 }
             } else {
