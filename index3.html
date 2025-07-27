@@ -294,6 +294,11 @@
                 }
             }
 
+            // Draw a black bar at the very bottom to cover the pixelated line
+            const BOTTOM_BLACKOUT_HEIGHT_PX = 15; // You can adjust this value
+            context.fillStyle = 'black'; // Use 'black' or your --bg-color
+            context.fillRect(0, canvasHeight - BOTTOM_BLACKOUT_HEIGHT_PX, canvasWidth, BOTTOM_BLACKOUT_HEIGHT_PX);
+
             animationFrameId = requestAnimationFrame(burn);
         }
 
