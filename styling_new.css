@@ -69,7 +69,10 @@ h1, h2, h3, h4, h5, h6, .text-accent-outlined {
 .section {
     padding-top: 6rem;
     padding-bottom: 4rem;
+    position: relative; /* REQUIRED for z-index to work */
+    z-index: 1;         /* Place sections above the canvas's z-index: -2 */
 }
+
 .hero-section {
     padding-top: 8rem;
 }
