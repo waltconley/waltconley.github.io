@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Banner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Custom font for a retro pixel-art feel */
+        .pixel-font {
+            font-family: 'Press Start 2P', monospace;
+        }
+        /* Custom styles for the banner container */
+        .banner-container {
+            width: 400px;
+            height: 140px;
+            text-shadow: 2px 2px 0px #000;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 flex items-center justify-left">
+    <!-- Main Banner Container -->
+    <a href="https://github.com/your-repo-link" target="_blank" class="banner-container block relative overflow-hidden bg-slate-900 border-2 border-green-400 rounded-lg shadow-xl hover:shadow-green-500/50 transition-shadow duration-300 group">
+        <div class="absolute inset-0 grid grid-cols-15 grid-rows-5 opacity-10">
+            <div class="col-span-1 row-span-1 bg-green-400 animate-pulse"></div>
+            <div class="col-span-3 row-span-1 bg-green-400 animate-pulse delay-75"></div>
+            <div class="col-span-10 row-span-1 bg-green-400 animate-pulse delay-100"></div>
+        </div>
+
+        <!-- Banner Content -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-2 text-center text-green-400">
+            <div class="flex-grow flex items-center justify-center">
+                <span class="text-5xl pixel-font leading-none group-hover:text-white transition-colors duration-300">
+                    GitHub
+                </span>
+            </div>
+            <div class="w-full text-[10px] pixel-font">
+                TextBound Castle Crawler
+            </div>
+        </div>
+    </a>
+</body>
+</html>
