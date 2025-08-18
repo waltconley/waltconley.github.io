@@ -3,139 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Walt's Forge | Capstone Project: [Your Project Name]</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Walt's Forge | Capstone Project: TextBound Castle Crawler</title>
+    <link rel="stylesheet" href="styling.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Replace this with styles.css */
-      .text-accent-outlined {
-        color: #e24e42; /* Example accent color */
-      }
-      .text-primary-dark {
-        color: #2c3e50; /* Example primary dark for headings */
-      }
-      .text-primary-light {
-        color: #ecf0f1; /* Example primary light for dark mode headings */
-      }
-      .text-secondary-dark {
-        color: #34495e; /* Example secondary dark for subheadings */
-      }
-      .text-secondary-light {
-        color: #bdc3c7; /* Example secondary light for dark mode subheadings */
-      }
-      .btn {
-        @apply px-6 py-3 rounded-lg font-semibold transition duration-300 ease-in-out;
-      }
-      .btn-primary {
-        @apply bg-accent-outlined text-white hover:bg-red-700;
-      }
-      .btn-secondary {
-        @apply bg-gray-600 text-white hover:bg-gray-700;
-      }
-      .video-wrap {
-        width: 100%;
-        max-width: 900px;
-        margin: 20px auto;
-      }
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styling.css" />
 
-      embed,
-      iframe,
-      object {
-        max-width: 100%;
-      }
-
-      .video-container {
-        position: relative;
-        overflow: hidden;
-        height: 0;
-        padding-bottom: 56.25%;
-
-        iframe,
-        object,
-        embed {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #f4f4f4;
-      }
-
-      .text-block {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-      /* Custom styles for the narratives section */
-      body {
-          font-family: 'Inter', sans-serif;
-          background-color: #f3f4f6;
-          color: #1f2937;
-      }
-      .dark body {
-          background-color: #111827;
-          color: #d1d5db;
-      }
-      /* This ensures the summary text is always visible */
-      .text-contrast {
-          color: #1f2937;
-      }
-      .dark .text-contrast {
-          color: #f9fafb;
-      }
-    </style>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
   </head>
-  <body
-    class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50 min-h-screen flex flex-col"
-  >
-    <header
-      class="bg-primary-dark dark:bg-gray-900 text-white py-4 shadow-lg sticky top-0 z-50"
+  <body class="antialiased">
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 top-0 transition-all duration-300 ease-in-out py-4"
     >
-      <nav class="container mx-auto px-6 flex justify-between items-center">
-        <a href="index2.html" class="text-2xl font-bold">Walt's Forge</a>
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">Walt's Forge</a>
         <div class="space-x-4">
-          <a href="index2.html#about" class="hover:text-accent-outlined"
-            >About</a
+          <a href="index.html#about" class="hover:text-accent-outlined"
+            >The Craftsman</a
           >
-          <a href="index2.html#projects" class="hover:text-accent-outlined"
-            >Projects</a
+          <a href="index.html#projects" class="hover:text-accent-outlined"
+            >Creations</a
           >
-          <a href="index2.html#skills" class="hover:text-accent-outlined"
-            >Skills</a
+          <a href="index.html#skills" class="hover:text-accent-outlined"
+            >The Craft</a
           >
-          <a href="index2.html#contact" class="hover:text-accent-outlined"
+          <a href="index.html#contact" class="hover:text-accent-outlined"
             >Contact</a
           >
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
-    <main class="flex-grow">
-      <section id="capstone-detail" class="py-16 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-          <h1
-            class="text-5xl font-extrabold text-center mb-6 text-accent-outlined dark:text-primary-light"
-          >
-            Capstone Project: TextBound Castle Crawler
-          </h1>
-          <p
-            class="text-lg text-center max-w-4xl mx-auto mb-12 text-default-outlined dark:text-gray-300"
-          >
-            This project represents the culmination of my studies in the computer science program. It's a complete reimagining of my very first scripting project from IT140—a simple, text-based CLI game. I've taken that basic console application and transformed it into a robust, web-based, and persistent experience. This capstone is a showcase of my growth, demonstrating how I apply my knowledge of modern software architecture, advanced data structures, and persistent database design to turn a simple idea into a scalable, professional-grade system.
-          </p>
-          <h2
-            class="text-4xl font-bold text-center mb-8 text-primary-dark dark:text-primary-light"
-          >
-            Code Review: Where it All Started
-          </h2>
+    <section id="capstone-detail" class="py-16">
+      <div class="container mx-auto px-6">
+        <br>
+        <h1
+          class="text-5xl font-extrabold text-center mb-6 text-accent-outlined dark:text-primary-light"
+        >
+          Capstone Project: TextBound Castle Crawler
+        </h1>
+        <p
+          class="text-lg text-center max-w-4xl mx-auto mb-12 text-default-outlined dark:text-gray-300"
+        >
+          This project is the culmination of my studies in the computer science program. It is a complete reimagining of my very first scripting project from IT140 – a simple, text-based CLI game. This is also my second rodeo with CS499, my first rodeo I attempted to flesh out and improve the ecosystem from our full-stack class. Though unfortunate, I now fully understand why my initial approach wasn’t the right avenue, which is why I'm here! That first example didn't show adequate comprehension and the ability to really apply what you've learned. However, this capstone is perfect for showcasing my growth and how to properly apply what I've learned with proper system design, advanced data structures, and a persistent database. I also love the fact that we are transforming our initial project as SNHU into an this scalable solution for my capstone!</p>
+        <p
+          class="text-lg text-center max-w-4xl mx-auto mb-12 text-default-outlined dark:text-gray-300"
+        >
+          The transformation of this simple game required a significant overhaul of its original single file, providing a perfect opportunity to demonstrate my skills. I refactored the project into a robust server-client architecture with a secure and persistent database. This work involved implementing crucial security measures, including hashing user passwords, using certificates for HTTPS/WSS, and parameterizing all database queries to prevent common vulnerabilities. While there wasn’t a ton of collaboration, the foundation was established to make collaboration super easy. We have all the changes annotated with documentation, Git branches, and extensive README files. Thanks to this wonderful environment, getting these changes like pathfinding and persistent storage wasn’t nearly as difficult as I thought it would be! This experience was fun and solidified my decision when it comes to my career aspirations.
+        </p>
+        <p
+          class="text-lg text-center max-w-4xl mx-auto mb-12 text-default-outlined dark:text-gray-300"
+        >
+          While I’ve gained experience with frontend technologies, my passion truly lies in backend engineering, where I can focus on building and optimizing systems on a larger scale. Honestly most of the more popular frontends are entirely too complicated for no reason, in my opinion. While that has attributed to my career aspirations, my passion for backend engineering has led me to explore languages like Zig, Rust, and even the language agnostic WASM (WebAssembly) outside of my regular coursework. Here lately I have been experimenting serverless computing with sandboxed runtimes like wasmtime. If that doesn't align with backend engineering, I don't know what else I could be doing! In my opinion, these activities directly align with my career goal of building secure, high-performance backend systems. You can just jump to the source and demo directly under this, or you can check out the enhancements and read the story!
+        </p>
+        <div class="flex justify-center mt-6">
+          <button 
+            data-scroll-to="#code-review-overview" 
+            class="px-6 py-2 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition duration-300">
+            Jump to Overview &darr;
+          </button>
+        </div>
+        <br>
+        <br>
+      </div>
+    </section>
+
+    <section id="code-review-overview" class="py-16">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl font-bold text-center mb-8 text-primary-dark dark:text-primary-light"
+        >
+          Code Review: Where it All Started
+        </h2>
           <div class="video-wrap">
             <div class="video-container">
               <iframe
@@ -159,7 +118,7 @@
                 Project Overview
               </h3>
               <p class="text-gray-700 dark:text-gray-300 mb-4">
-                The original IT140 project was a simple, single-user, and monolithic command-line application. Its functionality was entirely in-memory, meaning all player progress and game state were lost upon exiting. This design lacked the architectural principles necessary for modern, scalable software, such as persistent data storage, a separation of concerns, and the ability to support multiple users. My project addresses these core limitations. 
+                The original IT140 project was a simple, single-user, and monolithic command-line application. Its functionality was entirely in-memory, meaning all player progress and game state were lost upon exiting. This design intentionally lacked the the ability to scale. There was no persistent data storage, a separation of concerns, or the ability to support multiple users. It was meant to test the ability to implement some basic programming fundamentals. Now, my capstone adds everything we initially left off! 
               </p>
               <p class="text-gray-700 dark:text-gray-300 mb-4">
                 I have re-engineered the application from a monolithic command-line interface into a client-server architecture using PostgreSQL for persistent storage. This solution introduces key architectural principles like separation of concerns, a well-defined API, and multiple user capability, transforming a simple script into a robust and scalable web application!
@@ -197,15 +156,13 @@
                 Explore Further:
               </h3>
               <div class="flex flex-wrap gap-4">
-				 <div class="flex flex-col md:flex-row items-left justify-left gap-8">
-					<!-- GitHub Banner: Check the 'src' attribute! It must be the correct filename. -->
-					<iframe src="github-banner.html" class="w-[400px] h-[140px] border-none rounded-lg shadow-xl bg-slate-900" title="GitHub Banner"></iframe>
+                  <div class="flex flex-col md:flex-row items-left justify-left gap-8">
+                  <iframe src="assets/github-banner.html" class="w-[400px] h-[140px] border-none rounded-lg shadow-xl bg-slate-900" title="GitHub Banner"></iframe>
 
-					<!-- Live Demo Banner: Check the 'src' attribute! It must be the correct filename. -->
-					<iframe src="live-demo-banner.html" class="w-[400px] h-[140px] border-none rounded-lg shadow-xl bg-slate-900" title="Live Demo Banner"></iframe>
-				</div>
+                  <iframe src="assets/live-demo-banner.html" class="w-[400px] h-[140px] border-none rounded-lg shadow-xl bg-slate-900" title="Live Demo Banner"></iframe>
+                </div>
               </div>
-			  
+                          
             </div>
             <div>
               <h3
@@ -265,82 +222,111 @@
             </div>
           </div>
         </div>
-        <div class="container mx-auto p-6 md:p-12 space-y-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-  
-          <!-- Main Heading for the Narrative Section -->
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-50">Enhancement Snapshots</h2>
+        <div class="flex justify-center mt-6">
+          <button 
+            data-scroll-to="#enhancement" 
+            class="px-6 py-2 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition duration-300">
+            Jump to Enhancements &darr;
+          </button>
+        </div>
+      </section>
+
+      <section id="enhancement" class="py-16">
+        <div class="container mx-auto p-6 md:p-12 space-y-8 rounded-xl shadow-lg"> 
+          <h2 class="text-4xl font-bold text-center mb-4 text-secondary-dark dark:text-secondary-light">Enhancement Snapshots</h2>
           <p class="text-lg text-center text-gray-600 dark:text-gray-400">
-              The sections below provide a detailed look into each enhancement made to the project, covering the thought process, technical decisions, and outcomes!
+             The sections below provide a detailed look into each enhancement made to the project, covering the thought process, technical decisions, and outcomes!
           </p>
   
           <hr class="border-gray-200 dark:border-gray-700">
-  
-          <details class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md mb-4">
-              <summary class="text-2xl font-bold cursor-pointer text-gray-900 dark:text-gray-50">
-                  ⚙️ Software Design and Engineering
-              </summary>
-              <div class="mt-4 text-gray-700 dark:text-gray-300">
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">From Monolithic CLI to Distributed Architecture</h4>
-                  <p class="mb-4">
-                      This week we were tasked with implementing an enhancement an artifact that showed adequate software design and engineering. So, I decided to take this time to refactor my original python game and remove all the globals, that way I had a solid starting point. Without going into too much detail (because it bleeds into the other enhancements), I knew I wanted to have an authoritative server and a "dumb" client for lack of a better term.
-                  </p>
-                  <p class="my-4 text-center">
-                      <!-- Image of Diagram of Monolithic vs. Client-Server Architecture -->
-                      **[Image: A diagram illustrating the monolithic CLI versus the new client-server architecture.]**
-                  </p>
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Justification for Inclusion and Improvements</h4>
-                  <p class="mb-4">
-                      Since the original game relied on a terminal for user input, I figured why not implement a faux terminal as the client, and all the input goes to the server for decision-making. With that, I just needed to turn our old game into the server! Also, I hate Python, so why not try TypeScript? Node just released native support for TypeScript - sounds like fun! <em>P.S. It was experimental as of this capstone</em>
-                  </p>
-                  <p class="mb-4">
-                      If this enhancement works as expected, it would really get the wheels turning and make the future enhancements that much easier! So, what's all going into this enhancement, and how does it align with software design and engineer, and how does this showcase my skills?
-                  </p>
-                  <ul class="list-disc list-inside space-y-1 pl-4 mb-4">
-                      <li>
-                          I refactored the game from a single CLI game to a client-server architecture in a new language. We intended for our faux terminal clients to be dumb, and they did in fact turn out dumb! The server became the  invisible engine driving the game.
-                      </li>
-                      <li>
-                          During this refactor, a major focus was improving how user input is processed and how game state is managed. The command handling was moved to the server, and global variables were eliminated in favor of explicit <code>GameState</code> objects that are passed and updated per player session. This makes it possible to ensure each player’s game is isolated and consistently managed, preventing unexpected side effects common in the original design.
-                      </li>
-                      <li>
-                          The <code>handleCommand</code> function effectively became our API for our websocket connections and acted as a central dispatcher, managing game phases and dispatching commands cleanly!
-                      </li>
-                  </ul>
-                  <p class="mb-4">
-                      I got rid of our messy global state and moved to a stateful OOP approach that is mapped to each connection. That combined with the client server split directly showcases my ability to design and implement solutions that follow best practices for architectural separation and state management. Our project is now more modular and easier to maintain. It not only sets the stage for the next two enhancements, but it also makes them tremendously easier! If that doesn't nail the course outcome for software design and engineering, I don't know what else would! This is a wonderful demonstration on how to transform a functional but unscalable project into something that has a well-engineered backend that's ready for future expansion! It's not just about getting the code to work; it's about getting it to work well, in a way that's clean, organized, and makes sense to anyone (including future me) who has to look at it.
-                  </p>
-				  
-				  <p class="mb-4">
-					And thus, the 'TextBound Castle Crawler' was born, a name as literal as the text it's bound by.
-				  </p>
 
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Reflection on the Enhancement Process</h4>
-                  <p>
-                      The most valuable thing I learned getting this up and running was how much more robust and predictable game state becomes when managed explicitly on the server, rather than relying on implicit global state. The challenges primarily involved carefully disentangling the intertwined logic from the original single script and ensuring that all user inputs were correctly routed and processed within the new server-side context.
-                  </p>
-              </div>
+          <details class="detail-card rounded-lg p-6 mb-4">
+            <summary class="text-2xl font-bold cursor-pointer text-secondary-dark text-accent-outlined">
+                ⚙️ Software Design and Engineering
+            </summary>
+            <div class="mt-4 text-gray-700 dark:text-gray-300">
+              <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Important Links:</h4>
+              <p>
+                Starting Python Code: 
+                <a href="https://github.com/waltconley/TextBound-Castle---CS499-Capstone" target="_blank" class="text-blue-600 hover:underline">
+                  GitHub Repo
+                </a>
+              </p>
+              <p>
+                Enhancement One: 
+                <a href="https://github.com/waltconley/TextBound-Castle---CS499-Capstone/tree/enhancement_one" target="_blank" class="text-blue-600 hover:underline">
+                  GitHub Branch
+                </a>
+              </p> <br>
+                <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">From Monolithic CLI to Distributed Architecture</h4>
+                <p class="mb-4">
+                    This week we were tasked with implementing an enhancement an artifact that showed adequate software design and engineering. So, I decided to take this time to refactor my original python game and remove all the globals, that way I had a solid starting point. Without going into too much detail (because it bleeds into the other enhancements), I knew I wanted to have an authoritative server and a "dumb" client for lack of a better term.
+                </p>
+                <p class="my-4 text-center">
+                    <img src="images/narrative_one.png" alt="Monolith vs Server" class="w-4/12 mx-auto block">
+                </p>
+                <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Justification for Inclusion and Improvements</h4>
+                <p class="mb-4">
+                    Since the original game relied on a terminal for user input, I figured why not implement a faux terminal as the client, and all the input goes to the server for decision-making. With that, I just needed to turn our old game into the server! Also, I hate Python, so why not try TypeScript? Node just released native support for TypeScript - sounds like fun! <em>P.S. It was experimental as of this capstone</em>
+                </p>
+                <p class="mb-4">
+                    If this enhancement works as expected, it would really get the wheels turning and make the future enhancements that much easier! So, what's all going into this enhancement, and how does it align with software design and engineer, and how does this showcase my skills?
+                </p>
+                <ul class="list-disc list-inside space-y-1 pl-4 mb-4">
+                    <li>
+                        I refactored the game from a single CLI game to a client-server architecture in a new language. We intended for our faux terminal clients to be dumb, and they did in fact turn out dumb! The server became the  invisible engine driving the game.
+                    </li>
+                    <li>
+                        During this refactor, a major focus was improving how user input is processed and how game state is managed. The command handling was moved to the server, and global variables were eliminated in favor of explicit <code>GameState</code> objects that are passed and updated per player session. This makes it possible to ensure each player’s game is isolated and consistently managed, preventing unexpected side effects common in the original design.
+                    </li>
+                    <li>
+                        The <code>handleCommand</code> function effectively became our API for our websocket connections and acted as a central dispatcher, managing game phases and dispatching commands cleanly!
+                    </li>
+                </ul>
+                <p class="mb-4">
+                    I got rid of our messy global state and moved to a stateful OOP approach that is mapped to each connection. That combined with the client server split directly showcases my ability to design and implement solutions that follow best practices for architectural separation and state management. Our project is now more modular and easier to maintain. It not only sets the stage for the next two enhancements, but it also makes them tremendously easier! If that doesn't nail the course outcome for software design and engineering, I don't know what else would! This is a wonderful demonstration on how to transform a functional but unscalable project into something that has a well-engineered backend that's ready for future expansion! It's not just about getting the code to work; it's about getting it to work well, in a way that's clean, organized, and makes sense to anyone (including future me) who has to look at it.
+                </p>
+                                
+                <p class="mb-4">
+                      And thus, the 'TextBound Castle Crawler' was born, a name as literal as the text it's bound by.
+                </p>
+
+                <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Reflection on the Enhancement Process</h4>
+                <p>
+                    The most valuable thing I learned getting this up and running was how much more robust and predictable game state becomes when managed explicitly on the server, rather than relying on implicit global state. The challenges primarily involved carefully disentangling the intertwined logic from the original single script and ensuring that all user inputs were correctly routed and processed within the new server-side context.
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-8">
+              <button id="nextEnhancementButton" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 ease-in-out">
+                View Next Enhancement
+              </button>
+            </div>
           </details>
-  
-          <details class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md mb-4">
-              <summary class="text-2xl font-bold cursor-pointer text-gray-900 dark:text-gray-50">
-                  &#128296; Algorithms and Data Structures
+    
+          <details id="nextEnhancementDetails" class="detail-card rounded-lg p-6 mb-4">
+              <summary class="text-2xl font-bold cursor-pointer text-secondary-dark text-accent-outlined">
+                    &#128296; Algorithms and Data Structures
               </summary>
               <div class="mt-4 text-gray-700 dark:text-gray-300">
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">From Simple Logic to Algorithmic Mastery</h4>
+                <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Important Links:</h4>
+                <p>
+                  Enhancement Two: 
+                  <a href="https://github.com/waltconley/TextBound-Castle---CS499-Capstone/tree/enhancement_two" target="_blank" class="text-blue-600 hover:underline">
+                    GitHub Branch
+                  </a>
+                </p> <br> 
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">From Simple Logic to Algorithmic Mastery</h4>
                   <p class="mb-4">
                       Building upon the foundational client-server architecture, TextBound Castle Crawl continued its evolution. The game still looks the same, but the code has evolved quite a bit! This enhancement phase was primarily focused on upgrading the underlying algorithmic principles and data structures that drive the game’s core mechanics. My initial plan to focus on spatial representation and efficient data handling quickly adjusted due to troubleshooting challenges. These "inconveniences" led to a significant refactoring that introduced several new, dedicated modules like types.ts, error.ts, direction.ts, and pathfinding.ts, establishing a cleaner, more organized, and type-safe codebase for robust development. This unplanned journey turned out to be one of the most beneficial parts of the project!
                   </p>
-                  <p class="my-4 text-center">
-                      <!-- Screenshot of A* Pathfinding Output -->
-                      **[Image: Screenshot of the game's terminal showing the output of the A* pathfinding algorithm.]**
-                  </p>
-                  <p class="my-4 text-center">
-                      <!-- Image of Diagram of Game as a Graph -->
-                      **[Image: A diagram of the game's level represented as a graph, with rooms as nodes and paths as edges.]**
-                  </p>
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Justification and Showcase of Skills</h4>
+                  <div class="flex justify-center items-center">
+                    <img src="images/path.png">
+                    <img src="images/graph.png">
+                  </div>
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Justification and Showcase of Skills</h4>
                   <p class="mb-4">
-                      The original game and its initial client-server refactor relied on simpler data models and implicit error handling that limited complex interactions and optimal performance. For this enhancement, I focused on a comprehensive refactor to improve the underlying data structures. I started by breaking down the monolithic code into dedicated TypeScript modules, which not only improved navigability but also allowed me to implement more robust systems. These key improvements directly showcase my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices.
+                      The original game and its initial client-server refactor relied on simpler data models and implicit error handling that limited complex interactions and optimal performance. For this enhancement, my primary focus was improving the underlying data structures, code structure, and algorithms that worked with said data. With those focal points, a natural by-product was the data we're hanging onto in game state. This was primarily due to me trying to prepare for the next persistence update. I started by breaking down the game logic on the server into dedicated TypeScript modules. Here is where I really started to notice how much easier it was to jump in and out of files, and increment changes easily. While there is more that I haven't covered, these changes lay a strong foundation for more changes and show my ability to design and evaluate algorithms to solve problems.
                   </p>
                   <p class="mb-4">
                     I implemented robust error handling with Result<T, E> and custom errors. Inspired by some side projects in Rust, and a video from a YouTuber named <a href="https://gist.github.com/t3dotgg/a486c4ae66d32bf17c09c73609dacc5b" target="_blank">Theo</a>, I implemented a pattern that forces callers to expect and handle errors appropriately. Instead of functions just throwing errors, they now return a Result object that is explicitly a success or a failure. This approach, supported by custom error types in error.ts and types.ts, promotes explicit and predictable error handling, increasing the reliability and maintainability of the codebase. It also made debugging tremendously easier by preventing random nulls from being passed around.
@@ -351,56 +337,190 @@
                   <p class="mb-4">
                       Finally, I made some smaller but equally impactful changes. I refactored the player's inventory to use a hash table, which allows for near-constant-time operations for adding, removing, and checking for items. This made inventory management more structured and easier to work with. I also enhanced the move command to handle synonyms like "move N," "move north," and "move u." While this was initially a quality-of-life change for my own debugging, it significantly enhances the user experience, demonstrating attention to user-facing robustness and thoughtful input parsing.
                   </p>
-                  <p class="mb-4">
+                  <p class="mb-4">w
                       The sum of these changes—from adopting a graph structure and A* pathfinding to implementing a Result pattern—shows my ability to use well-founded and innovative techniques, skills, and tools to build a more resilient and maintainable system. It also shows a commitment to collaborative environments by creating a modular and well-documented codebase.
                   </p>
 
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Reflection on the Enhancement Process</h4>
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Reflection on the Enhancement Process</h4>
                   <p>
                       The process of enhancing TextBound Castle Crawl with these algorithmic and data structural improvements was incredibly insightful. Perhaps the most beneficial thing I learned was the practical power of choosing the right data structure for a specific problem. Seeing how the transition to a formal graph immediately unlocked the capability for a powerful algorithm like A* was an "aha!" moment, reinforcing the notion that algorithms and data structures are inextricably linked. I also gained a much deeper appreciation for explicit error handling with the Result pattern. While it was initially verbose, it forces a more disciplined and predictable approach to managing function outcomes, leading to far more robust code. The challenges were demanding, from debugging the A* algorithm to correctly implementing a heuristic function. I learned that disciplined debugging and a firm understanding of how the components interact are essential. The small but impactful change of adding move command synonyms was a lesson in itself, highlighting how seemingly minor quality-of-life improvements can save significant development time and improve the final user experience.
                   </p>
               </div>
-          </details>
+              <div class="flex justify-center mb-8">
+              <button id="finalEnhancementButton" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 ease-in-out">
+                View Next Enhancement
+              </button>
+            </div>
+            </details>
 
-          <details class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
-              <summary class="text-2xl font-bold cursor-pointer text-gray-900 dark:text-gray-50">
+            <details id="finalEnhancementDetails" class="detail-card rounded-lg p-6 mb-4">
+              <summary class="text-2xl font-bold cursor-pointer text-secondary-dark text-accent-outlined">
                   &#128190; Databases
               </summary>
               <div class="mt-4 text-gray-700 dark:text-gray-300">
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">From Temporary Sessions to Persistent Worlds</h4>
+                <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Important Links:</h4>
+                <p>
+                  Enhancement Three: 
+                  <a href="https://github.com/waltconley/TextBound-Castle---CS499-Capstone/tree/enhancement_three" target="_blank" class="text-blue-600 hover:underline">
+                    GitHub Branch
+                  </a>
+                </p> <br>
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">From Temporary Sessions to Persistent Worlds</h4>
                   <p class="mb-4">
-                      Building upon the foundational client-server architecture and enhanced algorithms, the project continues to evolve in a significant way! The database enhancement transforms the game from a temporary, single-session experience into a persistent one. This milestone was all about integrating robust data management into our existing architecture, ensuring player progress and game state are saved between sessions. The initial scope was simply to add a database for persistence, but it morphed into creating an entire authentication flow for user accounts and a comprehensive method of tracking and storing player progress! I really love how this project continually keeps me learning.
+                      Building upon the foundational client-server architecture and enhanced algorithms, the project continues to evolve in a significant way! I was focused on transitioning the player experience from a single, ephemeral experience to a potentially constantly evolving experience. Thankfully, most of my data was already centered around being persistent, so my biggest issue was ensuring all the right information could be saved, and instantiated. The initial scope was simply to add a database for persistence, but it morphed into creating an entire authentication flow for user accounts and a comprehensive method of tracking and storing player progress! I really love how this project continually keeps me learning.
                   </p>
-                  <p class="my-4 text-center">
-                      <!-- Image of ERD of the Database Schema -->
-                      **[Image: An Entity-Relationship Diagram (ERD) showing the Users and GameState tables and their relationship.]**
-                  </p>
-                  <p class="my-4 text-center">
-                      <!-- Screenshot of the Login screen in the terminal -->
-                      **[Image: Screenshot of the game's terminal showing a user logging in.]**
-                  </p>
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Justification and Showcase of Skills</h4>
+                  <div class="flex items-start justify-center">
+                    <div class="pr-3">
+                        Registering:
+                        <img src="images/registering.png">
+                    </div>
+                    <div>
+                        Logging In:
+                        <img src="images/login.png">
+                    </div>
+                  </div>
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Justification and Showcase of Skills</h4>
                   <p class="mb-4">
-                      The original game, and even the subsequent enhancements, were still a temporary, single-user experience. This enhancement introduces a critical component of modern software: **data persistence**. My goal was to create a durable backend that stores all relevant game data. By integrating a relational database with an ORM, I’ve directly solved the problem of data loss, showcasing my ability to use modern, industry-standard tools to deliver a valuable solution. The careful design of the database schema and the implementation of a robust authentication system also demonstrate a proactive security mindset, which is a key course outcome I was focused on.
+                      The original game, and even the subsequent enhancements, were still a temporary, single-user experience.  My goal was to create a durable backend that stores all relevant game data. I normally hate working with relational databases, but this brings up probably my favorite part of the capstone: Drizzle. Drizzle is an ORM that literally made solving data persistence a breeze. This showcases my ability to use modern tooling, while still following industry-standards to deliver a valuable solution! The schema actually wasn't that easy to lay out, because my game state and levels already incorporated everything that needed to be persisted! The more difficult parts were integrating user registration, authentication, and have those work with game state. Just wanted to say that this shows my proactive security mindset, which is a key course outcome I was focused on.
                   </p>
                   <p class="mb-4">
                       To achieve this, I first designed a relational database schema for the game using PostgreSQL. The schema includes tables for users and their respective game states, with a clear one-to-one relationship between them. This structured approach ensures data integrity and provides a scalable foundation for future features like leaderboards or multi-user interaction. The user table stores all player accounts with unique IDs and hashed passwords, while the game state table contains the current state of a player's session.
                   </p>
                   <p class="mb-4">
-                      Next, I integrated an Object-Relational Mapper (ORM). This tool abstracts direct database queries, allowing me to work with database records as TypeScript objects. This tremendously increases developer productivity and prevents common vulnerabilities like SQL injection attacks, all while providing better type safety. I chose the ORM based on its simplicity and robust feature set that directly complemented my project, managing the trade-off of ease of use over raw SQL performance optimization.
+                      Next, I integrated an Object-Relational Mapper (ORM), which they say abstracts direct database queries, but in my opinion it just simplifies a query by parameterizing it, which also type checks it in our case! Instead of doing a string query and getting some data that I have to parse, I now get database records as TypeScript objects. That increased my productivity significantly - and also prevents SQL injection! I chose the ORM based on its simplicity and robust feature set that directly complemented my project, managing the trade-off of ease of use over raw SQL performance optimization.
                   </p>
                   <p class="mb-4">
-                      Finally, the addition of a secure authentication system was a crucial part of this milestone. I built a dedicated auth_commands.ts module to handle all authentication logic, from user registration to login. User passwords are now salted and hashed using industry-standard cryptography, ensuring they are stored securely and never in plain text. This shows my commitment to a security mindset that anticipates adversarial exploits, as it ensures that only authorized users can access their game data, preventing unauthorized access and maintaining player privacy. I also implemented a data migration strategy and created seed files to populate the database with initial game data, which are both important best practices for managing a database's evolution.
+                      Finally, the addition of a secure authentication system was a crucial part of this milestone. I built a dedicated auth_commands.ts module to handle all authentication logic, from user registration to login. User passwords are now salted and hashed using industry-standard cryptography, ensuring they are stored securely and never in plain text. I also implemented a data migration strategy and created seed files to populate the database with initial game data. I now understand both are important best practices for managing a database's evolution, but I just did it to make things easy to test and repeatable! 
                   </p>
+                  <img src="images/erd.png" alt="Monolith vs Server" class="w-4/12 mx-auto block">
 
-                  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-50">Reflection on the Enhancement Process</h4>
+                  <h4 class="text-xl font-semibold mb-2 text-secondary-dark text-accent-outlined">Reflection on the Enhancement Process</h4>
                   <p>
-                      The database enhancement process was a testament to the importance of structured data design. It was incredibly rewarding to finally be able to save player progress and log back into the game right where I left off. The initial challenge was designing a logical schema that could store complex game state efficiently, and this required adjusting the `GameState` to properly reflect the custom level data being stored in the database. I also had to fix the game-ending logic to ensure it correctly checked for additional level data, which was an important part of ensuring the game played as intended. The experience reinforced the importance of careful planning before implementation, as changes to the database schema can be difficult to manage later on. It also highlighted the power of an ORM in simplifying database interactions, a trade-off I was happy to make for increased development speed and type safety.
+                      The database enhancement process was a testament to the importance of structured data design. It was incredibly rewarding to finally be able to save player progress and log back into the game right where I left off. The initial challenge was designing a logical schema that could store complex game state efficiently, but when I realized I could just reuse my game state and level objects, it wasn't that bad. Though, it did require adjusting the `GameState` a bit to properly reflect the custom level data being stored in the database. The biggest trouble I had was transitioning it from game over to level over, and is there another level? This was an eye-opener that reinforces the importance of careful planning before implementation, as changes to the database schema can be difficult to manage later on. It also highlighted the power of an ORM in simplifying database interactions, a trade-off I was happy to make for increased development speed and type safety.
                   </p>
               </div>
-          </details>
-        </div>
+            </details>
+          </div>
       </section>
-    </main>
+    <!-- </main> -->
+    <footer
+      class="py-8 text-center border-t"
+      style="border-color: rgba(255, 165, 0, 0.2)"
+    >
+      <p class="text-default-outlined opacity-75">
+        &copy; <span id="currentYear"></span> Walt's Forge (WACForge.dev). All
+        rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      if (navbar) {
+        window.onscroll = function () {
+          if (window.pageYOffset > 50) {
+            navbar.classList.add("navbar-scrolled");
+          } else {
+            navbar.classList.remove("navbar-scrolled");
+          }
+        };
+      }
+
+      // Typewriter effect
+      const typewriterElement = document.querySelector("#typewriter .typewriter-text-target");
+      const textToType = "Hammering code from dusk til dawn.";
+      let charIndex = 0;
+
+      function typeEffect() {
+        if (typewriterElement && charIndex < textToType.length) {
+          typewriterElement.textContent += textToType.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, 100);
+        } else if (typewriterElement) {
+          typewriterElement.style.borderRightColor = "var(--outline-orange)"; // Keep cursor solid at end
+          // Optional: start blinking again after a pause
+          // setTimeout(startBlinking, 1500);
+        }
+      }
+
+      // Blinking effect for cursor (can be called after typing finishes)
+      let isCursorVisible = true;
+      function blinkCursor() {
+        if (typewriterElement) {
+          typewriterElement.style.borderRightColor = isCursorVisible ? "var(--outline-orange)" : "transparent";
+          isCursorVisible = !isCursorVisible;
+          setTimeout(blinkCursor, 530); // Blinking speed
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typewriterElement) {
+          setTimeout(() => {
+            typeEffect();
+          }, 1200);
+        }
+      });
+
+      // Smooth Scroll for Internal Links and Buttons
+      document.querySelectorAll('a[href^="#"], [data-scroll-to]').forEach((element) => {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Get the target ID from either the href or the data-scroll-to attribute.
+          const targetId = this.getAttribute("href") || this.getAttribute("data-scroll-to");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            const navbarHeight = document.getElementById("navbar")?.offsetHeight || 0;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // View Next Enhancement button
+      document.getElementById('nextEnhancementButton').addEventListener('click', function() {
+        const nextDetails = document.getElementById('nextEnhancementDetails');
+        if (nextDetails) {
+          // Open the details section
+          nextDetails.open = true;
+
+          // Scroll the page to the newly opened details section
+          setTimeout(() => {
+            nextDetails.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100); 
+        }
+      });
+
+      document.getElementById('finalEnhancementButton').addEventListener('click', function() {
+        const finalDetails = document.getElementById('finalEnhancementDetails');
+        if (finalDetails) {
+          // Open the details section
+          finalDetails.open = true;
+
+          // Scroll the page to the newly opened details section
+          setTimeout(() => {
+            finalDetails.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100);
+        }
+      });
+
+      // Current Year for Footer
+      const currentYearElement = document.getElementById("currentYear");
+      if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+      }
+    </script>
   </body>
 </html>

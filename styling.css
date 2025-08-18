@@ -1,202 +1,285 @@
 :root {
-    --bg-color: #050505; /* Near black for base */
-    --text-white: #FFFFFF;
-    --text-yellow: #FFD700; /* Goldish yellow */
-    --outline-orange: #FFA500; /* Standard orange */
-    --outline-orange-dark: #FF8C00; /* Darker orange for yellow text outline */
-    --button-primary-bg: var(--text-yellow);
-    --button-primary-text: #050505; 
-    --button-secondary-border: var(--outline-orange);
-    --button-secondary-text: var(--outline-orange);
-    --button-secondary-hover-bg: var(--outline-orange);
-    --button-secondary-hover-text: #050505; 
-    --tag-bg: #D35400; 
-    --tag-text: var(--text-yellow);
-    --navbar-brand-color: var(--text-yellow);
-    --navbar-link-color: #e0e0e0; 
-    --navbar-link-hover-color: var(--text-yellow);
-    --section-title-color: var(--text-yellow);
-    --spark-color: var(--outline-orange);
+  --bg-color: #050505; /* Near black for base */
+  --text-white: #ffffff;
+  --text-yellow: #ffd700; /* Goldish yellow */
+  --outline-orange: #ffa500; /* Standard orange */
+  --outline-orange-dark: #ff8c00; /* Darker orange for yellow text outline */
+  --button-primary-bg: var(--text-yellow);
+  --button-primary-text: #050505;
+  --button-secondary-border: var(--outline-orange);
+  --button-secondary-text: var(--outline-orange);
+  --button-secondary-hover-bg: var(--outline-orange);
+  --button-secondary-hover-text: #050505;
+  --tag-bg: #d35400;
+  --tag-text: var(--text-yellow);
+  --navbar-brand-color: var(--text-yellow);
+  --navbar-link-color: #e0e0e0;
+  --navbar-link-hover-color: var(--text-yellow);
+  --section-title-color: var(--text-yellow);
+  --spark-color: var(--outline-orange);
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-white); 
-    paint-order: stroke fill;
-    overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-white);
+  paint-order: stroke fill;
+  overflow-x: hidden;
 }
-body { -webkit-text-stroke-width: 0; }
-p, li, .text-default-outlined {
-    color: var(--text-white);
-    -webkit-text-stroke-width: 0.4px;
-    -webkit-text-stroke-color: var(--outline-orange);
-    paint-order: stroke fill;
+body {
+  -webkit-text-stroke-width: 0;
 }
-h1, h2, h3, h4, h5, h6, .text-accent-outlined {
-    color: var(--text-yellow);
-    -webkit-text-stroke-width: 0.6px; 
-    -webkit-text-stroke-color: var(--outline-orange-dark);
-    paint-order: stroke fill;
+p,
+li,
+.text-default-outlined {
+  color: var(--text-white);
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: var(--outline-orange);
+  paint-order: stroke fill;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-accent-outlined {
+  color: var(--text-yellow);
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: var(--outline-orange-dark);
+  paint-order: stroke fill;
 }
 
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(-45deg, red, blue, green, yellow);
-    background-size: 600% 600%; 
-    animation: gradientBG 45s ease infinite; 
-    opacity: 0.8; 
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    -45deg,
+    #0d0d0d,
+    #000000,
+    #211200,
+    #391f00,
+    #141414
+  );
+  background-size: 300% 300%;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.8;
 }
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .navbar-scrolled {
-    background-color: rgba(5, 5, 5, 0.85); 
-    backdrop-filter: blur(10px);
+  background-color: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(10px);
 }
 .section {
-    padding-top: 6rem; 
-    padding-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
 }
 .hero-section {
-    padding-top: 8rem;
+  padding-top: 8rem;
 }
 .card {
-    background-color: rgba(15, 15, 15, 0.75); 
-    border: 1px solid rgba(255, 165, 0, 0.2); 
-    backdrop-filter: blur(5px);
+  background-color: rgba(15, 15, 15, 0.75);
+  border: 1px solid rgba(255, 165, 0, 0.2);
+  backdrop-filter: blur(5px);
 }
 .tag {
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
-    -webkit-text-stroke-width: 0; 
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  -webkit-text-stroke-width: 0;
 }
 .btn-primary {
-    background-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
-    -webkit-text-stroke-width: 0; 
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  -webkit-text-stroke-width: 0;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 .btn-primary:hover {
-    filter: brightness(1.15); 
-    transform: translateY(-2px);
+  filter: brightness(1.15);
+  transform: translateY(-2px);
 }
 .btn-secondary {
-    border: 1px solid var(--button-secondary-border);
-    color: var(--button-secondary-text);
-    -webkit-text-stroke-width: 0; 
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  border: 1px solid var(--button-secondary-border);
+  color: var(--button-secondary-text);
+  -webkit-text-stroke-width: 0;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
 }
 .btn-secondary:hover {
-    background-color: var(--button-secondary-hover-bg);
-    color: var(--button-secondary-hover-text);
-    transform: translateY(-2px);
+  background-color: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-text);
+  transform: translateY(-2px);
 }
 .typewriter-container {
-    display: inline-block; 
-    position: relative; /* For spark positioning */
+  display: inline-block;
+  position: relative; /* For spark positioning */
 }
 .typewriter-text-target {
-    color: var(--text-yellow); 
-    -webkit-text-stroke-width: 0.6px;
-    -webkit-text-stroke-color: var(--outline-orange-dark);
-    paint-order: stroke fill;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 4.5s steps(45, end) forwards; /* Only typing animation, forwards to hold state */
-    display: inline-block; 
-    vertical-align: bottom; 
-    /* Removed border-right for cursor */
+  color: var(--text-yellow);
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: var(--outline-orange-dark);
+  paint-order: stroke fill;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4.5s steps(45, end) forwards; /* Only typing animation, forwards to hold state */
+  display: inline-block;
+  vertical-align: bottom;
+  /* Removed border-right for cursor */
 }
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 /* Removed @keyframes blink-caret */
 
 .spark {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background-color: var(--spark-color);
-    border-radius: 50%;
-    opacity: 1;
-    animation: flyAndFade 0.7s ease-out forwards;
-    pointer-events: none; 
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--spark-color);
+  border-radius: 50%;
+  opacity: 1;
+  animation: flyAndFade 0.7s ease-out forwards;
+  pointer-events: none;
 }
 
 @keyframes flyAndFade {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--spark-end-x), var(--spark-end-y)) scale(0);
-        opacity: 0;
-    }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--spark-end-x), var(--spark-end-y)) scale(0);
+    opacity: 0;
+  }
 }
 
 .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 .reveal-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 .hero-graphic-placeholder {
-    width: 200px; 
-    height: 180px; 
-    margin-bottom: 2rem;
+  width: 200px;
+  height: 180px;
+  margin-bottom: 2rem;
 }
 nav a {
-    color: var(--navbar-link-color);
-    -webkit-text-stroke-width: 0.4px;
-    -webkit-text-stroke-color: var(--outline-orange);
-    paint-order: stroke fill;
+  color: var(--navbar-link-color);
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: var(--outline-orange);
+  paint-order: stroke fill;
 }
-nav a:hover, nav a.text-accent-outlined:hover {
-    color: var(--navbar-link-hover-color);
-    -webkit-text-stroke-color: var(--outline-orange-dark);
+nav a:hover,
+nav a.text-accent-outlined:hover {
+  color: var(--navbar-link-hover-color);
+  -webkit-text-stroke-color: var(--outline-orange-dark);
 }
 nav a.text-accent-outlined {
-     color: var(--navbar-brand-color);
-    -webkit-text-stroke-width: 0.6px;
-    -webkit-text-stroke-color: var(--outline-orange-dark);
+  color: var(--navbar-brand-color);
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: var(--outline-orange-dark);
 }
 .social-icon {
-    color: var(--text-white);
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: var(--outline-orange);
-    paint-order: stroke fill;
-    transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+  color: var(--text-white);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: var(--outline-orange);
+  paint-order: stroke fill;
+  transition:
+    color 0.3s ease,
+    -webkit-text-stroke-color 0.3s ease;
 }
 .social-icon:hover {
-    color: var(--text-yellow);
-    -webkit-text-stroke-color: var(--outline-orange-dark);
+  color: var(--text-yellow);
+  -webkit-text-stroke-color: var(--outline-orange-dark);
 }
 .project-link {
-    color: var(--text-yellow);
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: var(--outline-orange-dark);
-    paint-order: stroke fill;
+  color: var(--text-yellow);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: var(--outline-orange-dark);
+  paint-order: stroke fill;
 }
 .project-link:hover {
-    filter: brightness(1.2);
+  filter: brightness(1.2);
+}
+.video-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.detail-card {
+  background-color: rgba(15, 15, 15, 0.75);
+  border: 1px solid rgba(255, 165, 0, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 10px rgba(255, 165, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 0 15px rgba(255, 165, 0, 0.5);
+}
